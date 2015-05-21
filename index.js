@@ -15,10 +15,7 @@ var express         = require('express'),
 app.set('port', port)
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
-app.use(express.static(__dirname + '/css'))
-app.use(express.static(__dirname + '/bower_components/leaflet.drawwithtouch/dist'))
-app.use(express.static(__dirname + '/dist'))
-app.use('/fonts/', express.static(__dirname + '/assets/fonts'));
+app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(morgan('dev'))

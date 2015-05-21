@@ -1,5 +1,3 @@
-
-
 (function($){
 
   jQuery.get('/areas', function ( res ){

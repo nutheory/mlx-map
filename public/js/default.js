@@ -1,15 +1,5 @@
 (function($){
 
-  jQuery.get('/areas', function ( res ){
-    res.areas.forEach(function forEach(a){
-      jQuery("#saved_searches").append("\
-        <li data-latlng=\"" + a.latLng + "\" data-type=\"" + a.type + "\" data-center=\"" + a.center + "\" data-zoom=\"" + a.zoom + "\"> \
-          <a class=\"show_area\" href=\"/area/" + a._id + "\">" + a._id + "</a> \
-          <a class=\"del\" href=\"/delete/" + a._id + "\"><i class=\"fa fa-lg, fa-trash-o\"></i></a> \
-        </li>")
-    })
-  })
-
   var lat = -37.7772, 
       lng = 175.2756,
       map_i = MLXMAP.map(lat, lng)
@@ -56,31 +46,9 @@
     })
   })
 
-  $(document).on('click', '#reset', function (e){
-    map_i.remove()
-    map_i = MLXMAP.map(lat, lng)
-  })
-
-  $(document).on('area_created', function (e){
-    $('#result h1').html(e.originalEvent.detail[1])
-    $("#latlng").html(e.originalEvent.detail[0])
-    $("#saved_searches").html("")
-    jQuery.get('/areas', function ( res ){
-    res.areas.forEach(function forEach(a){
-      jQuery("#saved_searches").append("\
-        <li data-latlng=\"" + a.latLng + "\" data-type=\"" + a.type + "\" data-center=\"" + a.center + "\" data-zoom=\"" + a.zoom + "\"> \
-          <a class=\"show_area\" href=\"/area/" + a._id + "\">" + a._id + "</a> \
-          <a class=\"del\" href=\"/delete/" + a._id + "\"><i class=\"fa fa-lg, fa-trash-o\"></i></a> \
-        </li>")
-    })
-  })
-  })
-
   $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart',function (e) {
     $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible')
     e.preventDefault()
   })
 
 })(jQuery)
-
-//  21982 Midcrest Dr. Lake forest, ca 92630

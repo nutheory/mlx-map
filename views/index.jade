@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+       
+    link(rel='stylesheet', href='leaflet.css') 
+    link(rel='stylesheet', href='leaflet.draw.css')
+    link(rel='stylesheet', href='default.css')
+  body
+    header.navigation(role='banner')
+      .navigation-wrapper
+        a.logo(href='javascript:void(0)')
+          i.fa.fa-map-marker.fa-3x    
+        a#js-mobile-menu.navigation-menu-button(href='javascript:void(0)') MENU
+        nav(role='navigation')
+          ul#js-navigation-menu.navigation-menu.show
+              a.nav-link.start.leaflet-draw-draw-polygon(href="#")
+                = "Draw Search Area"
+              a.nav-link.history.js-menu-trigger.sliding-panel-button
+                = "Search History"
+              a#reset.nav-link
+                = "Reset Map"     
+        .navigation-tools
+          .search-bar
+            form(role='search')
+              input#lookup_box(type='search', placeholder='Where would u like to search? (address)')         
+              button#lookup_submit(type='submit')
+                img(src='https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png', alt='Search Icon')
+
+    #map
+    nav.js-menu.sliding-panel-content 
+      ul#saved_searches 
+    .js-menu-screen.sliding-panel-fade-screen
+    #result
+      h1
+    #latlng  
+    script(src='jquery.js')
+    script(src='leaflet.js')
+    script(src='Leaflet.draw-src.js')
+    script(src='map_init.js')
+    script(src='default.js')

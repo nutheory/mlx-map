@@ -9,14 +9,18 @@
     </li>"
   }
 
-  
+  // MLXMAP.getLocation = function(){
+  //   var location = ''
+  //   jQuery.get("//api.ipinfodb.com/v3/ip-city/?key=a394834cf195b7d9da842912b2cf6b65514cab92f9185298a9e4bcb497e4224f&format=json", function ( res ) {
+  //     location = res
+  //     console.log("loc",location)
+  //   })
+  // }  
 
-  MLXMAP.map = function(latitude, longitude){
-    map_center.push(latitude)
-    map_center.push(longitude)    
+  MLXMAP.map = function(latitude, longitude){   
     var mlxUrl = '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       mlx = new L.TileLayer(mlxUrl, {maxZoom: 18}),
-      map = new L.Map('map', {layers: [mlx], center: new L.LatLng(map_center[0], map_center[1]), zoom: 1 }),
+      map = new L.Map('map', {layers: [mlx], center: new L.LatLng(latitude, longitude), zoom: 16 }),
       drawnItems = new L.FeatureGroup(),
       drawControl = _pref(drawnItems)
     map.addLayer(drawnItems)

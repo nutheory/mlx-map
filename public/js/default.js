@@ -1,5 +1,5 @@
 (function($){
-
+  
   var lat = -37.7772, 
       lng = 175.2756,
       map_i = MLXMAP.map(lat, lng)

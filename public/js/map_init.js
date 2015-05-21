@@ -3,7 +3,7 @@
   MLXMAP = {}
 
   MLXMAP.map = function(latitude, longitude){
-    var mlxUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    var mlxUrl = '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       mlx = new L.TileLayer(mlxUrl, {maxZoom: 18}),
       map = new L.Map('map', {layers: [mlx], center: new L.LatLng(latitude, longitude), zoom: 15 })
     var drawnItems = new L.FeatureGroup(),
